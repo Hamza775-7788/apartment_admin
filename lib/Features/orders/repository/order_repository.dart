@@ -57,7 +57,6 @@ class OrderRepositoryImpl extends OrderRepository {
         Orderslinkapi.getOrders,
         jsonEncode(body),
       );
-
       if (response.statusCode == 200) {
         final jsonData = jsonDecode(response.body);
         if (jsonData['status']) {

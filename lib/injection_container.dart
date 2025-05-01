@@ -8,6 +8,8 @@ import 'package:apartment_admin/Features/jops/controller/jops_type_controller.da
 import 'package:apartment_admin/Features/jops/repository/jops_type_repository.dart';
 import 'package:apartment_admin/Features/orders/controller/order_controller.dart';
 import 'package:apartment_admin/Features/orders/repository/order_repository.dart';
+import 'package:apartment_admin/Features/report/controller/report_controller.dart';
+import 'package:apartment_admin/Features/report/repo/report_repository.dart';
 import 'package:apartment_admin/core/network/network.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
@@ -59,6 +61,12 @@ Future<void> init() async {
   );
   sl.registerLazySingleton<ApartmentRepostory>(
     () => ApartmentRepostoryImpl(networkInfo: sl(), getConnect: sl()),
+  );
+  sl.registerFactory<ReportController>(
+    () => ReportController(reportRepository: sl()),
+  );
+  sl.registerLazySingleton<ReportRepository>(
+    () => ReportRepository(getConnect: sl(), networkInfo: sl()),
   );
   //! External
   final sharedPreferences = await SharedPreferences.getInstance();

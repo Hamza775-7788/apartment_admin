@@ -1,6 +1,5 @@
 import 'package:apartment_admin/Features/home/viewModel/home_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class HomeViewPage extends StatefulWidget {
@@ -24,6 +23,17 @@ class _HomeViewPageState extends State<HomeViewPage> {
           setState(() {});
         },
         destinations: [
+          NavigationDestination(
+            selectedIcon: Icon(
+              Icons.report,
+              color: Get.theme.colorScheme.primary,
+            ),
+            icon: Icon(
+              Icons.report,
+              color: Get.theme.colorScheme.primaryContainer,
+            ),
+            label: viewModel.reportLable,
+          ),
           NavigationDestination(
             selectedIcon: Icon(
               Icons.handyman_outlined,

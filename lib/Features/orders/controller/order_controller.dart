@@ -54,19 +54,19 @@ class OrderControllerImpl extends OrderController {
 
   @override
   Future<void> getOrders() async {
-    try {
-      final response = await _repository.viewOrders();
-      response.fold(
-        (failure) {
-          handleError(failure);
-        },
-        (data) {
-          orders = data;
-          update();
-        },
-      );
-    } catch (e) {
-      Get.dialog(ErorrDilaog(message: "$e"));
-    }
+    // try {
+    final response = await _repository.viewOrders();
+    response.fold(
+      (failure) {
+        handleError(failure);
+      },
+      (data) {
+        orders = data;
+        update();
+      },
+    );
+    // } catch (e) {
+    //   Get.dialog(ErorrDilaog(message: "$e"));
+    // }
   }
 }
